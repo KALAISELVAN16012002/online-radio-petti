@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Radio, Music, SkipBack, SkipForward, Pause, Play, ChevronLeft, ChevronRight, Search, Loader } from 'lucide-react';
 import { Howl } from 'howler';
+import { Link } from 'react-router-dom';
 
 const RadioPlayer = () => {
   const [stations, setStations] = useState([]);
@@ -122,12 +123,15 @@ const RadioPlayer = () => {
   }
 
   return (
+    <>
     <div className="min-h-screen text-white bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-50 p-4 bg-black/30 backdrop-blur-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Radio size={24} className="text-pink-500" />
+            <Link to="/">
+              <img src="/assets/images/image-logo.webp" alt="" className='w-10 h-10' />
+            </Link>
             <h1 className="text-xl font-bold">Indian Radio</h1>
           </div>
           <button onClick={() => setShowSearch(!showSearch)} className="p-2 transition-colors rounded-full hover:bg-white/10">
@@ -237,9 +241,14 @@ const RadioPlayer = () => {
               </button>
             </div>
           </div>
+         
         </div>
       )}
     </div>
+    <div className='justify-center gap-2 py-2 text-center text-white md:text-base lg:flex bg-fuchsia-800'>
+    🤍 with Made by <a href="https://zehe.in" target='_blank'> <span className='underline cursor-pointer underline-offset-2'>Zehe</span></a> 
+    </div>
+    </>
   );
 };
 
